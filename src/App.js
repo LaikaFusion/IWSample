@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import NameDisplay from "./components/NameDisplay";
 
+const sortByName = (a,b) =>{
+	return a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
+
+}
+
 const App = () => {
   const [fullDetailsArray, setFDArr] = useState([]);
   const [displayArr, setDispArr] = useState([]);
@@ -12,9 +17,7 @@ const App = () => {
         return response.json();
       })
       .then(function(data) {
-        data.sort(function(a, b) {
-          return a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
-				});
+        data.sort(sortByName);
         setFDArr(data);
         changePageDisp(data, "next");
       });
