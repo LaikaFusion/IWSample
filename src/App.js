@@ -6,8 +6,12 @@ const App = () => {
       .then(function(response) {
         return response.json();
       })
-      .then(function(myJson) {
-        console.log(JSON.stringify(myJson));
+      .then(function(data) {
+				
+				data.sort(function (a,b){
+					return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)
+				});
+        console.log(data);
       });
   }, []);
 
