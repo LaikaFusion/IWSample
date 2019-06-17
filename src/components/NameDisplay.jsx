@@ -1,9 +1,17 @@
 import React from 'react'
 
 const NameDisplay =(props)=> {
-  const {name} = props.userObj;
+  const {name,email} = props.userObj;
+  const bizCheck = ()=>{
+    if(email.includes(".biz")){
+      return {color:"green"}
+    }
+    else{
+      return {}
+    }
+  }
   return (
-    <div>
+    <div style = {bizCheck()}>
       {name}
     </div>
   )
