@@ -13,7 +13,7 @@ const App = () => {
       .then(function(data) {
         data.sort(function(a, b) {
           return a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
-        });
+				});
         setFDArr(data);
         changePageDisp(data, "next");
       });
@@ -24,9 +24,8 @@ const App = () => {
 			return
 		}
     let incrimentedCursor;
-		console.log(directionStr)
     if (directionStr === "next") {
-      if (Math.floor(dataArr.length / 5) === displayCursorInt / 5) {
+      if (dataArr.length / 5 <= displayCursorInt / 5 ) {
         return;
       }
       incrimentedCursor = displayCursorInt + 5;
