@@ -20,22 +20,43 @@ const App = () => {
   }, []);
 
   const changePageDisp = (dataArr, directionStr) => {
-		if(!dataArr[displayCursorInt]){
+		if(!dataArr){
 			return
 		}
-		const incrimentedCursor = displayCursorInt+5;
-		setDispArr(dataArr.slice(displayCursorInt , incrimentedCursor));
-		setCurInt(incrimentedCursor);
-
+    let incrimentedCursor;
+		console.log(directionStr)
+    if (directionStr === "next") {
+      if (Math.floor(dataArr.length / 5) === displayCursorInt / 5) {
+        return;
+      }
+      incrimentedCursor = displayCursorInt + 5;
+      setDispArr(dataArr.slice(displayCursorInt, incrimentedCursor));
+    } else {
+      if ((displayCursorInt - 5) <= 0) {
+        return;
+			}
+			incrimentedCursor = displayCursorInt - 5;
+      setDispArr(dataArr.slice(incrimentedCursor-5, incrimentedCursor));
+    }
+    setCurInt(incrimentedCursor);
   };
 
   return (
     <div>
       <h1>Industry Weapon Applicant Test</h1>
-			{displayArr.map(e=>{
-				console.log(e)
-				return (<div>{e.name}</div>)
-			})}
+      {displayArr.map(e => {
+        return <div>{e.name}</div>;
+      })}
+      <button onClick={() => {
+          changePageDisp(fullDetailsArray, "prev");
+        }}>Previous</button>
+      <button
+        onClick={() => {
+          changePageDisp(fullDetailsArray, "next");
+        }}
+      >
+        Next
+      </button>
     </div>
   );
 };
