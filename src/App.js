@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import NameDisplay from "./components/NameDisplay";
 
 const App = () => {
   const [fullDetailsArray, setFDArr] = useState([]);
@@ -67,7 +68,7 @@ const App = () => {
     <div>
       <h1>Industry Weapon Applicant Test</h1>
       {displayArr.map(e => {
-        return <div>{e.name}</div>;
+        return <NameDisplay key={e.id} userObj ={e}/>
       })}
       <button
         style={displayCursorInt === 5 ? { visibility: "hidden" } : {}}
