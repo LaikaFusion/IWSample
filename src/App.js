@@ -4,6 +4,7 @@ import AddUserForm from "./components/AddUserForm";
 import "./App.css";
 
 const sortByName = (a, b) => {
+	//sorts by name value of an array of objects, case insensitive 
   return a.name.toUpperCase() > b.name.toUpperCase()
     ? 1
     : b.name.toUpperCase() > a.name.toUpperCase()
@@ -23,7 +24,8 @@ const App = () => {
       })
       .then(function(data) {
         data.sort(sortByName);
-        setFDArr(data);
+				setFDArr(data);
+				//this will set the intial 5 objects displayed
         changePageDisp(data, "next");
       });
   }, []);
@@ -34,6 +36,7 @@ const App = () => {
     }
     let incrimentedCursor;
     if (directionStr === "next") {
+			//detects if user is attempting to next past the end, should be impossible to see the button
       if (dataArr.length / 5 <= displayCursorInt / 5) {
         return;
       }
@@ -53,7 +56,8 @@ const App = () => {
     const newArr = [...fullDetailsArray];
     newArr.push({ name: nameStr, email: emailStr });
     newArr.sort(sortByName);
-    setFDArr(newArr);
+		setFDArr(newArr);
+		//do not want display cursor to move from this change
     setDispArr(newArr.slice(displayCursorInt - 5, displayCursorInt));
   };
 

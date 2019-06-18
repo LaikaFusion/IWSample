@@ -3,6 +3,7 @@ import useAddUserForm from './useAddUser'
 
 
 const AddUserForm = (props)=> {
+  //make sure to pass the cb in
   const { hSubmit,handleInputChange,input} = useAddUserForm(props.addUser);
   return (
     <form  onSubmit={hSubmit}>

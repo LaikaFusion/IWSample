@@ -1,4 +1,8 @@
 import  {useState} from 'react';
+
+//this is a custom hook for the user submit form
+
+
 const useAddUserForm = (cb) => {
   const [input, setInput] = useState({});
 
