@@ -47,9 +47,10 @@ const App = () => {
 	
 	const addUser = (nameStr,emailStr) =>{
 		const newArr = [...fullDetailsArray];
-		newArr.push({"name":nameStr,"email":emailStr}).sort(sortByName);
+		newArr.push({"name":nameStr,"email":emailStr});
+		newArr.sort(sortByName);
 		setFDArr(newArr)
-		setDispArr(dataArr.slice(displayCursorInt, displayCursorInt+5));
+		setDispArr(newArr.slice(displayCursorInt -5, displayCursorInt));
 
 	}
 
@@ -75,7 +76,7 @@ const App = () => {
       >
         Next
       </button>
-			<AddUserForm />
+			<AddUserForm addUser={addUser} />
     </div>
   );
 };

@@ -10,7 +10,7 @@ const useAddUserForm = (cb) => {
       alert("Please include a first and last name")
       return;
     }
-    cb();
+    cb(input.name, input.email);
   }
   const handleInputChange = (event) => {
     event.persist();

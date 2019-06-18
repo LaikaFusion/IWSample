@@ -2,8 +2,8 @@ import React from 'react'
 import useAddUserForm from './useAddUser'
 
 
-const AddUserForm = ()=> {
-  const { hSubmit,handleInputChange,input} = useAddUserForm();
+const AddUserForm = (props)=> {
+  const { hSubmit,handleInputChange,input} = useAddUserForm(props.addUser);
 
   console.log(input)
   return (
