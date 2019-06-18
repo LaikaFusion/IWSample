@@ -3,7 +3,7 @@ import NameDisplay from "./components/NameDisplay";
 import AddUserForm from "./components/AddUserForm";
 
 const sortByName = (a,b) =>{
-	return a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
+	return a.name.toUpperCase() > b.name.toUpperCase()  ? 1 : b.name.toUpperCase()  > a.name.toUpperCase()  ? -1 : 0;
 
 }
 
