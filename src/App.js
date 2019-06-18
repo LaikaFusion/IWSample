@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NameDisplay from "./components/NameDisplay";
 import AddUserForm from "./components/AddUserForm";
+import './App.css';
 
 const sortByName = (a,b) =>{
 	return a.name.toUpperCase() > b.name.toUpperCase()  ? 1 : b.name.toUpperCase()  > a.name.toUpperCase()  ? -1 : 0;
