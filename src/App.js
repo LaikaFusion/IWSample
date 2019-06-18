@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import NameDisplay from "./components/NameDisplay";
 import AddUserForm from "./components/AddUserForm";
-import './App.css';
+import "./App.css";
 
-const sortByName = (a,b) =>{
-	return a.name.toUpperCase() > b.name.toUpperCase()  ? 1 : b.name.toUpperCase()  > a.name.toUpperCase()  ? -1 : 0;
-
-}
+const sortByName = (a, b) => {
+  return a.name.toUpperCase() > b.name.toUpperCase()
+    ? 1
+    : b.name.toUpperCase() > a.name.toUpperCase()
+    ? -1
+    : 0;
+};
 
 const App = () => {
   const [fullDetailsArray, setFDArr] = useState([]);
@@ -44,40 +47,47 @@ const App = () => {
       setDispArr(dataArr.slice(incrimentedCursor - 5, incrimentedCursor));
     }
     setCurInt(incrimentedCursor);
-	};
-	
-	const addUser = (nameStr,emailStr) =>{
-		const newArr = [...fullDetailsArray];
-		newArr.push({"name":nameStr,"email":emailStr});
-		newArr.sort(sortByName);
-		setFDArr(newArr)
-		setDispArr(newArr.slice(displayCursorInt -5, displayCursorInt));
+  };
 
-	}
+  const addUser = (nameStr, emailStr) => {
+    const newArr = [...fullDetailsArray];
+    newArr.push({ name: nameStr, email: emailStr });
+    newArr.sort(sortByName);
+    setFDArr(newArr);
+    setDispArr(newArr.slice(displayCursorInt - 5, displayCursorInt));
+  };
 
   return (
-    <div>
+    <div className="container">
       <h1>Industry Weapon Applicant Test</h1>
-      {displayArr.map(e => {
-        return <NameDisplay key={e.id} userObj ={e}/>
-      })}
-      <button
-        style={displayCursorInt === 5 ? { visibility: "hidden" } : {}}
-        onClick={() => {
-          changePageDisp(fullDetailsArray, "prev");
-        }}
-      >
-        Previous
-      </button>
-      <button
-        style={(fullDetailsArray.length / 5 <= displayCursorInt / 5) ? { visibility: "hidden" } : {}}
-        onClick={() => {
-          changePageDisp(fullDetailsArray, "next");
-        }}
-      >
-        Next
-      </button>
-			<AddUserForm addUser={addUser} />
+			<div className="nameCont">{displayArr.map(e => {
+        return <NameDisplay key={e.id} userObj={e} />;
+      })}</div>
+      
+      <div className="buttonRow">
+        <button
+          style={displayCursorInt === 5 ? { visibility: "hidden" } : {}}
+          onClick={() => {
+            changePageDisp(fullDetailsArray, "prev");
+          }}
+        >
+          Previous
+        </button>
+        <button
+          style={
+            fullDetailsArray.length / 5 <= displayCursorInt / 5
+              ? { visibility: "hidden" }
+              : {}
+          }
+          onClick={() => {
+            changePageDisp(fullDetailsArray, "next");
+          }}
+        >
+          Next
+        </button>
+      </div>
+
+      <AddUserForm addUser={addUser} />
     </div>
   );
 };

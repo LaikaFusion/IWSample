@@ -11,7 +11,7 @@ const NameDisplay =(props)=> {
     }
   }
   return (
-    <div style = {bizCheck()}>
+    <div className="nameLine" style = {bizCheck()}>
       {name}
     </div>
   )

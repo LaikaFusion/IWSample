@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 24px;
+}
+h1 {
+  margin-bottom: 1em;
+}
+button {
+  border: rgb(51, 51, 51);
+  color: #000;
+  overflow: hidden;
+  width: 8em;
+  height: 2em;
+  font-size: 24px;
+
+}
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+input{
+  height:3em; 
+  margin-right: 1em;
+}
+.buttonRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.nameCont {
+  margin-bottom: 1rem;
+}
+.nameLine{
+  margin-bottom: .5em;
+}

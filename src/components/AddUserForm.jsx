@@ -4,16 +4,14 @@ import useAddUserForm from './useAddUser'
 
 const AddUserForm = (props)=> {
   const { hSubmit,handleInputChange,input} = useAddUserForm(props.addUser);
-
-  console.log(input)
   return (
     <form  onSubmit={hSubmit}>
       <div>
-        <label>Name:</label>
+        <label>Name:  </label>
         <input type="test" name="name" required  onChange={handleInputChange} value={input.name} />
       </div>
       <div>
-        <label>Email Address</label>
+        <label>Email Address:  </label>
         <input type="email" name="email" required  onChange={handleInputChange} value={input.email} />
       </div>
       <button type="submit">Add User</button>
