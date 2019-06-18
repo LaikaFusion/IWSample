@@ -43,7 +43,15 @@ const App = () => {
       setDispArr(dataArr.slice(incrimentedCursor - 5, incrimentedCursor));
     }
     setCurInt(incrimentedCursor);
-  };
+	};
+	
+	const addUser = (nameStr,emailStr) =>{
+		const newArr = [...fullDetailsArray];
+		newArr.push({"name":nameStr,"email":emailStr}).sort(sortByName);
+		setFDArr(newArr)
+		setDispArr(dataArr.slice(displayCursorInt, displayCursorInt+5));
+
+	}
 
   return (
     <div>
