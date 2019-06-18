@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NameDisplay from "./components/NameDisplay";
+import AddUserForm from "./components/AddUserForm";
 
 const sortByName = (a,b) =>{
 	return a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
@@ -66,6 +67,7 @@ const App = () => {
       >
         Next
       </button>
+			<AddUserForm />
     </div>
   );
 };
